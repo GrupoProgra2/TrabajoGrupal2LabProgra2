@@ -31,4 +31,12 @@ public class Tigo {
             }
         }
     }
+    
+    public PlanBasico search(int numtel){
+        for (PlanBasico p: planes){
+            if (p.numero==numtel)
+                return p; 
+        }
+        return null;
+   
 }
