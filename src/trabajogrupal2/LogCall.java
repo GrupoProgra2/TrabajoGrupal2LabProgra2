@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabajogrupal2;
-
+package trabajogrupal2; 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -22,8 +22,8 @@ public class LogCall {
         fecha=Calendar.getInstance();
     }
     public String toString(){
-        String cadena= Integer.toString(numero)+Double.toString(minutos)+
-        return 
+        String cadena= Integer.toString(numero)+Double.toString(minutos)+fecha.getTime().toString();
+        return cadena;
     }
     
 }
