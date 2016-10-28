@@ -61,4 +61,21 @@ public class PlanBasico {
     public double pagoMensual(){
         return this.monthlyMinutes()* 0.5;
     }
+    
+    public String toString(){
+        return "Nombre"+name+numero;
+    }
+    
+    public void imprimir(){
+        System.out.println(this.toString());
+        Calendar t= Calendar.getInstance();
+        t.set(t.get(Calendar.YEAR), t.get(Calendar.MONTH), 1, 0, 0);
+         Calendar t2= Calendar.getInstance();
+        t2.set(t2.get(Calendar.YEAR), t2.get(Calendar.MONTH)+1, 1, 0, 0);
+         for (LogCall log: llamadas){
+            if (log.fecha.after(t) && log.fecha.before(t2)){
+                System.out.println(log.toString());
+            }
+        }
+    }
 }
