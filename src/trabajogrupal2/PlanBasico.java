@@ -6,6 +6,8 @@
 package trabajogrupal2;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -42,5 +44,21 @@ public class PlanBasico {
         LogCall e= new LogCall(numero, mins);
         llamadas.add(e);
     } 
-
+    public double monthlyMinutes(){
+        double suma=0;
+        Calendar t= Calendar.getInstance();
+        t.set(t.get(Calendar.YEAR), t.get(Calendar.MONTH), 1, 0, 0);
+         Calendar t2= Calendar.getInstance();
+        t2.set(t2.get(Calendar.YEAR), t2.get(Calendar.MONTH)+1, 1, 0, 0);
+        for (LogCall log: llamadas){
+            if (log.fecha.after(t) && log.fecha.before(t2)){
+                suma=log.minutos+suma;
+            }
+        }
+        return suma;
+    }
+    
+    public double pagoMensual(){
+        return this.monthlyMinutes()* 0.5;
+    }
 }
